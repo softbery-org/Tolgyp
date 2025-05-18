@@ -1,0 +1,11 @@
+System.InvalidOperationException: Your default credentials were not found. To set up Application Default Credentials, see https://cloud.google.com/docs/authentication/external/set-up-adc.
+   at Google.Apis.Auth.OAuth2.DefaultCredentialProvider.CreateDefaultCredentialAsync()
+   at Google.Api.Gax.Rest.ScopedCredentialProvider.CreateDefaultCredentialsUncached()
+   at Google.Api.Gax.TaskExtensions.WaitWithUnwrappedExceptions(Task task)
+   at Google.Api.Gax.TaskExtensions.ResultWithUnwrappedExceptions[T](Task`1 task)
+   at Google.Api.Gax.Rest.ScopedCredentialProvider.GetCredentials(GoogleCredential credentials)
+   at Google.Api.Gax.Rest.ClientBuilderBase`1.GetHttpClientInitializer()
+   at Google.Api.Gax.Rest.ClientBuilderBase`1.CreateServiceInitializer()
+   at Google.Cloud.Translation.V2.TranslationClientBuilder.Build()
+   at Google.Cloud.Translation.V2.TranslationClient.Create()
+   at Tolgyp.lang.Language.DetectLanguage(String argument) in F:\dev\Tolgyp\lang\Language.cs:line 20

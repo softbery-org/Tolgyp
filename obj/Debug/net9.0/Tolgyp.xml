@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Tolgyp</name>
+    </assembly>
+    <members>
+        <member name="T:Tolgyp.lang.Language">
+            <summary>
+            Provides functionality to detect the language of a given text and translate it,
+            primarily between Polish and English, using the Google Cloud Translation V2 API.
+            It includes both synchronous and asynchronous methods for these operations.
+            Note: The <see cref="T:Google.Cloud.Translation.V2.TranslationClient"/> is currently re-initialized on each detection call,
+            which might be inefficient for frequent operations.
+            </summary>
+        </member>
+        <member name="P:Tolgyp.lang.Language.LanguageCode">
+            <summary>
+            Gets or sets the language code for the detected language.
+            </summary>
+            <value>Default is set \"pl\"</value>
+        </member>
+        <member name="P:Tolgyp.lang.Language.LanguageTranslateCode">
+            <summary>
+            Gets or sets the language code for the translation.
+            </summary>
+        </member>
+        <member name="P:Tolgyp.lang.Language.Detection">
+            <summary>
+            Gets the detected language and its confidence.
+            </summary>
+        </member>
+        <member name="P:Tolgyp.lang.Language.Client">
+            <summary>
+            Gets the translation client.
+            </summary>
+        </member>
+        <member name="P:Tolgyp.lang.Language.OrginalText">
+            <summary>
+            Gets the original text and translated text.
+            </summary>
+        </member>
+        <member name="P:Tolgyp.lang.Language.TranslatedText">
+            <summary>
+            Gets the translated text.
+            </summary>
+        </member>
+        <member name="M:Tolgyp.lang.Language.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tolgyp.lang.Language"/> class.
+            The <see cref="T:Google.Cloud.Translation.V2.TranslationClient"/> is initialized on demand when detection methods are called.
+            </summary>
+        </member>
+        <member name="M:Tolgyp.lang.Language.Translate(System.String)">
+            <summary>
+            Detects the language of the input text and translates it to the complementary language
+            (Polish to English, or any other detected language to Polish).
+            If the detected language is "pl", it translates to "en". Otherwise, it translates to "pl".
+            </summary>
+            <param name="argument">The text to be translated.</param>
+            <returns>The translated text. Returns an error message string if detection or client is null, or translation fails.</returns>
+        </member>
+        <member name="M:Tolgyp.lang.Language.TranslateAsync(System.String)">
+            <summary>
+            Asynchronously detects the language of the input text and translates it to the complementary language
+            (Polish to English, or any other detected language to Polish).
+            If the detected language is "pl", it translates to "en". Otherwise, it translates to "pl".
+            </summary>
+            <param name="argument">The text to be translated.</param>
+            <returns>
+            A task that represents the asynchronous operation. The task result contains the translated text.
+            Returns an error message string if detection or client is null, or translation fails.
+            </returns>
+        </member>
+        <member name="M:Tolgyp.lang.Language.DetectLanguage(System.String)">
+            <summary>
+            Detects the language of the provided text using the Google Cloud Translation V2 API.
+            The result of the detection (language code and confidence) is stored internally in the <see cref="F:Tolgyp.lang.Language._detection"/> field.
+            This method also initializes the <see cref="F:Tolgyp.lang.Language._client"/> field with a new <see cref="T:Google.Cloud.Translation.V2.TranslationClient"/>.
+            Any exceptions during detection are caught, logged to "error.log", and printed to the console.
+            </summary>
+            <param name="argument">The text whose language needs to be detected.</param>
+        </member>
+        <member name="M:Tolgyp.lang.Language.DetectLanguageAsync(System.String)">
+            <summary>
+            Asynchronously detects the language of the provided text using the Google Cloud Translation V2 API.
+            The result of the detection (language code and confidence) is stored internally in the <see cref="F:Tolgyp.lang.Language._detection"/> field.
+            This method also initializes the <see cref="F:Tolgyp.lang.Language._client"/> field with a new <see cref="T:Google.Cloud.Translation.V2.TranslationClient"/> asynchronously.
+            Any exceptions during detection are caught, logged to "error.log", and printed to the console.
+            </summary>
+            <param name="argument">The text whose language needs to be detected.</param>
+            <returns>A task that represents the asynchronous detection operation.</returns>
+        </member>
+        <member name="T:Program">
+            <summary>
+            Główna klasa programu.
+            </summary>
+        </member>
+        <member name="M:Program.Main(System.String[])">
+            <summary>
+            Główna metoda uruchamiająca program.
+            </summary>
+            <param name="args">Argumenty powłoki</param>
+            <returns>Główne zadanie</returns>
+        </member>
+    </members>
+</doc>

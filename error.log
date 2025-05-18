@@ -1,0 +1,14 @@
+The service translate has thrown an exception.
+HttpStatusCode is Forbidden.
+Google.Apis.Requests.RequestError
+Cloud Translation API has not been used in project tolgyp before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/translate.googleapis.com/overview?project=tolgyp then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [403]
+Errors [
+	Message[Cloud Translation API has not been used in project tolgyp before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/translate.googleapis.com/overview?project=tolgyp then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.] Location[ - ] Reason[accessNotConfigured] Domain[usageLimits]
+]
+
+Google.GoogleApiException: The service translate has thrown an exception. HttpStatusCode is Forbidden. Cloud Translation API has not been used in project tolgyp before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/translate.googleapis.com/overview?project=tolgyp then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.
+   at Google.Apis.Requests.ClientServiceRequest`1.ParseResponse(HttpResponseMessage response)
+   at Google.Apis.Requests.ClientServiceRequest`1.Execute()
+   at Google.Cloud.Translation.V2.TranslationClientImpl.DetectLanguages(IEnumerable`1 textItems)
+   at Google.Cloud.Translation.V2.TranslationClient.DetectLanguage(String text)
+   at Tolgyp.lang.Language.DetectLanguage(String argument) in F:\dev\Tolgyp\lang\Language.cs:line 21
